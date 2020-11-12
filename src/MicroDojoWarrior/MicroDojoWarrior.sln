@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroDojoWarrior.API", "MicroDojoWarrior.API\MicroDojoWarrior.API.csproj", "{56F3E22D-92E0-480C-A9CB-6BD9ED428385}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroDojoWarrior.Write.Domain", "MicroDojoWarrior.Write.Domain\MicroDojoWarrior.Write.Domain.csproj", "{A2592D83-7FAD-4231-B32A-46D56033C928}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroDojoWarrior_Write", "MicroDojoWarrior_Write", "{277B03F3-3C0C-437A-A1AE-9A46C44FD96C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedKernel", "SharedKernel\SharedKernel.csproj", "{CB9F45DE-2E25-4FDF-B659-9A63F20EB75E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroDojoWarrior.Write.Data", "MicroDojoWarrior.Write.Data\MicroDojoWarrior.Write.Data.csproj", "{5BCEC7BA-9094-4E3C-9F3F-0C272F9AFF7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroDojoWarrior.ViewModels", "MicroDojoWarrior.ViewModels\MicroDojoWarrior.ViewModels.csproj", "{7E064033-FA44-429D-AE91-240261A526A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroDojoWarrior.Application", "MicroDojoWarrior.Application\MicroDojoWarrior.Application.csproj", "{B0B745EC-7CE9-41C9-BAAD-1026AFA5512C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroDojoWarrior_Read", "MicroDojoWarrior_Read", "{2119B38C-4EF3-4F1B-868E-41C6D25C88BB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroDojoWarrior.Read.Domain", "MicroDojoWarrior.Read.Domain\MicroDojoWarrior.Read.Domain.csproj", "{A62AF189-DCA5-4A69-A9B1-56A8120B0BF9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroDojoWarrior.Read.Data", "MicroDojoWarrior.Read.Data\MicroDojoWarrior.Read.Data.csproj", "{7FE03D76-0734-4EA8-8124-C4036E60D342}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroDojoWarrior.Integration.MessagingBus", "MicroDojoWarrior.Integration.MessagingBus\MicroDojoWarrior.Integration.MessagingBus.csproj", "{A3668BA4-5746-4BBE-A35E-E08545211700}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56F3E22D-92E0-480C-A9CB-6BD9ED428385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F3E22D-92E0-480C-A9CB-6BD9ED428385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F3E22D-92E0-480C-A9CB-6BD9ED428385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56F3E22D-92E0-480C-A9CB-6BD9ED428385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2592D83-7FAD-4231-B32A-46D56033C928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2592D83-7FAD-4231-B32A-46D56033C928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2592D83-7FAD-4231-B32A-46D56033C928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2592D83-7FAD-4231-B32A-46D56033C928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB9F45DE-2E25-4FDF-B659-9A63F20EB75E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB9F45DE-2E25-4FDF-B659-9A63F20EB75E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB9F45DE-2E25-4FDF-B659-9A63F20EB75E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB9F45DE-2E25-4FDF-B659-9A63F20EB75E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BCEC7BA-9094-4E3C-9F3F-0C272F9AFF7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BCEC7BA-9094-4E3C-9F3F-0C272F9AFF7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BCEC7BA-9094-4E3C-9F3F-0C272F9AFF7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BCEC7BA-9094-4E3C-9F3F-0C272F9AFF7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E064033-FA44-429D-AE91-240261A526A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E064033-FA44-429D-AE91-240261A526A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E064033-FA44-429D-AE91-240261A526A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E064033-FA44-429D-AE91-240261A526A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0B745EC-7CE9-41C9-BAAD-1026AFA5512C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B745EC-7CE9-41C9-BAAD-1026AFA5512C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B745EC-7CE9-41C9-BAAD-1026AFA5512C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B745EC-7CE9-41C9-BAAD-1026AFA5512C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A62AF189-DCA5-4A69-A9B1-56A8120B0BF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A62AF189-DCA5-4A69-A9B1-56A8120B0BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A62AF189-DCA5-4A69-A9B1-56A8120B0BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A62AF189-DCA5-4A69-A9B1-56A8120B0BF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FE03D76-0734-4EA8-8124-C4036E60D342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FE03D76-0734-4EA8-8124-C4036E60D342}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FE03D76-0734-4EA8-8124-C4036E60D342}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FE03D76-0734-4EA8-8124-C4036E60D342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3668BA4-5746-4BBE-A35E-E08545211700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3668BA4-5746-4BBE-A35E-E08545211700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3668BA4-5746-4BBE-A35E-E08545211700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3668BA4-5746-4BBE-A35E-E08545211700}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A2592D83-7FAD-4231-B32A-46D56033C928} = {277B03F3-3C0C-437A-A1AE-9A46C44FD96C}
+		{5BCEC7BA-9094-4E3C-9F3F-0C272F9AFF7E} = {277B03F3-3C0C-437A-A1AE-9A46C44FD96C}
+		{A62AF189-DCA5-4A69-A9B1-56A8120B0BF9} = {2119B38C-4EF3-4F1B-868E-41C6D25C88BB}
+		{7FE03D76-0734-4EA8-8124-C4036E60D342} = {2119B38C-4EF3-4F1B-868E-41C6D25C88BB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BCDE9686-6F4A-4C54-8615-8C2161928087}
+	EndGlobalSection
+EndGlobal
