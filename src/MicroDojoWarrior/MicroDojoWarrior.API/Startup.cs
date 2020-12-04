@@ -49,7 +49,7 @@ namespace MicroDojoWarrior.API
             services.AddScoped<Messages>();
             services.AddHandler();
 
-            services.AddScoped<IBus>(c => new AzServiceBus(""));
+            services.AddScoped<IBus>(c => new AzServiceBus(Configuration["ServiceBusConnectionString"]));
             services.AddScoped<MessageBus>();
             services.AddScoped<EventDispatcher>();
 

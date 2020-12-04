@@ -49,6 +49,11 @@ namespace MicroDojoWarrior.Write.Data
             //    .HasForeignKey(e => e.BeltId)
             //    .IsRequired();
 
+            //modelBuilder.Entity<Belt>().HasData(new Belt
+            //{
+            //    Color = "Red",
+            //});
+
             base.OnModelCreating(modelBuilder);
         }
 
