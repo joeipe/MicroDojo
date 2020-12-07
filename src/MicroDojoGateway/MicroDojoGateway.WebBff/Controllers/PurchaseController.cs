@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using MicroDojoGateway.WebBff.Services;
-using MicroDojoGateway.WebBff.Services.Interfaces;
+﻿using MicroDojoGateway.WebBff.Services.Interfaces;
 using MicroDojoGateway.WebBff.ViewModels;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
 
 namespace MicroDojoGateway.WebBff.Controllers
 {
@@ -26,7 +20,7 @@ namespace MicroDojoGateway.WebBff.Controllers
             _purchaseService = purchaseService;
             _baseUrl = "api/Purchase";
         }
-        
+
         #region Stock
 
         [HttpGet]
@@ -122,6 +116,5 @@ namespace MicroDojoGateway.WebBff.Controllers
         }
 
         #endregion Order
-        
     }
 }

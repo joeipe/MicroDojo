@@ -1,5 +1,4 @@
-﻿using MicroDojoGateway.WebBff.Services;
-using MicroDojoGateway.WebBff.Services.Interfaces;
+﻿using MicroDojoGateway.WebBff.Services.Interfaces;
 using MicroDojoGateway.WebBff.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MicroDojoGateway.WebBff.ViewModels
+﻿namespace MicroDojoGateway.WebBff.ViewModels
 {
     public class StockVM
     {
