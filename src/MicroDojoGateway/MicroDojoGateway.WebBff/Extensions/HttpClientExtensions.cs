@@ -26,11 +26,6 @@ namespace MicroDojoGateway.WebBff.Extensions
             return httpClient.PutAsync(url, content);
         }
 
-        public static Task<HttpResponseMessage> DeleteAsJson(this HttpClient httpClient, string url)
-        {
-            return httpClient.DeleteAsync(url);
-        }
-
         public static async Task<T> ReadContentAs<T>(this HttpResponseMessage response)
         {
             if (!response.IsSuccessStatusCode)
