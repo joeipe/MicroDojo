@@ -1,24 +1,23 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using MicroDojoGateway.WebBff.Services;
+using MicroDojoGateway.WebBff.Services.Interfaces;
 using MicroDojoGateway.WebBff.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
 
 namespace MicroDojoGateway.WebBff.Controllers
 {
     [Route("api/bffweb/[controller]/[action]")]
     [ApiController]
-    public class WarriorController : ApiController
+    public class WarriorController : ControllerBase
     {
         private readonly ILogger<WarriorController> _logger;
-        public readonly string _baseUrl;
+        private readonly IWarriorService _warriorService;
 
-        public WarriorController(ILogger<WarriorController> logger, IHttpClientFactory httpClientFactory)
-            :base(httpClientFactory.CreateClient("Warrior_APIClient"))
+        public WarriorController(ILogger<WarriorController> logger, IWarriorService warriorService)
         {
             _logger = logger;
-            _baseUrl = "api/Warrior";
+            _warriorService = warriorService;
         }
 
         #region Belt
@@ -26,36 +25,36 @@ namespace MicroDojoGateway.WebBff.Controllers
         [HttpGet]
         public async Task<ActionResult> GetBelt()
         {
-            var url = $"{_baseUrl}/GetBelt";
-            return await PerformRequest<List<BeltVM>>(url);
+            var result = await _warriorService.GetBelt();
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult> GetBeltById(int id)
         {
-            var url = $"{_baseUrl}/GetBeltById/{id}";
-            return await PerformRequest<BeltVM>(url);
+            var result = await _warriorService.GetBeltById(id);
+            return Ok(result);
         }
 
         [HttpPost]
         public async Task<ActionResult> AddBelt([FromBody] BeltVM value)
         {
-            var url = $"{_baseUrl}/AddBelt";
-            return await PerformRequest<bool>(url, value);
+            var response = await _warriorService.AddBelt(value);
+            return Created("", value);
         }
 
         [HttpPut]
         public async Task<ActionResult> UpdateBelt([FromBody] BeltVM value)
         {
-            var url = $"{_baseUrl}/UpdateBelt";
-            return await PerformRequest<bool>(url, value);
+            var response = await _warriorService.UpdateBelt(value);
+            return Ok();
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteBelt(int id)
         {
-            var url = $"{_baseUrl}/DeleteBelt/{id}";
-            return await PerformRequest<bool>(url);
+            var response = await _warriorService.DeleteBelt(id);
+            return Ok();
         }
 
         #endregion Belt
@@ -65,36 +64,36 @@ namespace MicroDojoGateway.WebBff.Controllers
         [HttpGet]
         public async Task<ActionResult> GetPerson()
         {
-            var url = $"{_baseUrl}/GetPerson";
-            return await PerformRequest<List<PersonVM>>(url);
+            var result = await _warriorService.GetPerson();
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult> GetPersonById(int id)
         {
-            var url = $"{_baseUrl}/GetPersonById/{id}";
-            return await PerformRequest<PersonVM>(url);
+            var result = await _warriorService.GetPersonById(id);
+            return Ok(result);
         }
 
         [HttpPost]
         public async Task<ActionResult> AddPerson([FromBody] PersonVM value)
         {
-            var url = $"{_baseUrl}/AddPerson";
-            return await PerformRequest<bool>(url, value);
+            var response = await _warriorService.AddPerson(value);
+            return Created("", value);
         }
 
         [HttpPut]
         public async Task<ActionResult> UpdatePerson([FromBody] PersonVM value)
         {
-            var url = $"{_baseUrl}/UpdatePerson";
-            return await PerformRequest<bool>(url, value);
+            var response = await _warriorService.UpdatePerson(value);
+            return Ok();
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeletePerson(int id)
         {
-            var url = $"{_baseUrl}/DeletePerson/{id}";
-            return await PerformRequest<bool>(url);
+            var response = await _warriorService.DeletePerson(id);
+            return Ok();
         }
 
         #endregion Person

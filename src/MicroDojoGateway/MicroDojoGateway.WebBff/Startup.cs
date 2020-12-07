@@ -1,9 +1,10 @@
+using MicroDojoGateway.WebBff.Services;
+using MicroDojoGateway.WebBff.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 
@@ -23,14 +24,14 @@ namespace MicroDojoGateway.WebBff
         {
             services.AddControllers();
 
-            services.AddHttpClient("Warrior_APIClient", client =>
+            services.AddHttpClient<IWarriorService, WarriorService>(client =>
             {
                 client.BaseAddress = new System.Uri("https://localhost:44326/");
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
             });
 
-            services.AddHttpClient("Purchase_APIClient", client =>
+            services.AddHttpClient<IPurchaseService, PurchaseService>(client =>
             {
                 client.BaseAddress = new System.Uri("https://localhost:44396/");
                 client.DefaultRequestHeaders.Clear();
