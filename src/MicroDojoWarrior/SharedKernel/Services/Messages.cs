@@ -21,5 +21,17 @@ namespace SharedKernel.Services
             dynamic handler = _provider.GetService(handlerType);
             handler.Handle((dynamic)command);
         }
+
+        public T Dispatch<T>(IQuery<T> query)
+        {
+            Type type = typeof(IQueryHandler<,>);
+            Type[] typeArgs = { query.GetType(), typeof(T) };
+            Type handlerType = type.MakeGenericType(typeArgs);
+
+            dynamic handler = _provider.GetService(handlerType);
+            T result = handler.Handle((dynamic)query);
+
+            return result;
+        }
     }
 }

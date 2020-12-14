@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MicroDojoWarrior.Application.Interfaces;
 using MicroDojoWarrior.Read.Data.Interfaces;
+using MicroDojoWarrior.Read.Data.Queries;
 using MicroDojoWarrior.ViewModels;
 using MicroDojoWarrior.Write.Data.Commands;
 using MicroDojoWarrior.Write.Data.Interfaces;
@@ -25,14 +26,16 @@ namespace MicroDojoWarrior.Application.Services
 
         public IList<BeltVM> GetBelt()
         {
-            var data = _readData.GetBelt();
+            var query = new GetBeltQuery();
+            var data = _readData.GetBelt(query);
             var vm = _mapper.Map<IList<BeltVM>>(data);
             return vm;
         }
 
         public BeltVM GetBeltById(int id)
         {
-            var data = _readData.GetBeltById(id);
+            var query = _mapper.Map<GetBeltByIdQuery>(id);
+            var data = _readData.GetBeltById(query);
             var vm = _mapper.Map<BeltVM>(data);
             return vm;
         }
@@ -61,14 +64,16 @@ namespace MicroDojoWarrior.Application.Services
 
         public IList<PersonVM> GetPerson()
         {
-            var data = _readData.GetPerson();
+            var query = new GetPersonQuery();
+            var data = _readData.GetPerson(query);
             var vm = _mapper.Map<IList<PersonVM>>(data);
             return vm;
         }
 
         public PersonVM GetPersonById(int id)
         {
-            var data = _readData.GetPersonById(id);
+            var query = _mapper.Map<GetPersonByIdQuery>(id);
+            var data = _readData.GetPersonById(query);
             var vm = _mapper.Map<PersonVM>(data);
             return vm;
         }

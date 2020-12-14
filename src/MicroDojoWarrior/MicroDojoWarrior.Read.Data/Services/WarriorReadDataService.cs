@@ -1,7 +1,9 @@
 ﻿using Dapper;
 using Dapper.Contrib.Extensions;
 using MicroDojoWarrior.Read.Data.Interfaces;
+using MicroDojoWarrior.Read.Data.Queries;
 using MicroDojoWarrior.Read.Domain;
+using SharedKernel.Services;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,23 +12,24 @@ namespace MicroDojoWarrior.Read.Data.Services
     public class WarriorReadDataService : IWarriorReadDataService
     {
         private readonly ReadDbContext _dataContext;
+        private readonly Messages _messages;
 
-        public WarriorReadDataService(ReadDbContext dataContext)
+        public WarriorReadDataService(Messages messages)
         {
-            _dataContext = dataContext;
+            _messages = messages;
         }
 
         #region Belt
 
-        public IEnumerable<Belt> GetBelt()
+        public IEnumerable<Belt> GetBelt(GetBeltQuery query)
         {
-            var data = _dataContext.db.GetAll<Belt>().ToList();
+            var data = _messages.Dispatch(query);
             return data;
         }
 
-        public Belt GetBeltById(int id)
+        public Belt GetBeltById(GetBeltByIdQuery query)
         {
-            var data = _dataContext.db.Get<Belt>(id);
+            var data = _messages.Dispatch(query);
             return data;
         }
 
@@ -34,15 +37,15 @@ namespace MicroDojoWarrior.Read.Data.Services
 
         #region Person
 
-        public IEnumerable<Person> GetPerson()
+        public IEnumerable<Person> GetPerson(GetPersonQuery query)
         {
-            var data = _dataContext.db.Query<Person>("select * from People").ToList();
+            var data = _messages.Dispatch(query);
             return data;
         }
 
-        public Person GetPersonById(int id)
+        public Person GetPersonById(GetPersonByIdQuery query)
         {
-            var data = _dataContext.db.QuerySingle<Person>("select * from People where Id = @Id", new { id });
+            var data = _messages.Dispatch(query);
             return data;
         }
 

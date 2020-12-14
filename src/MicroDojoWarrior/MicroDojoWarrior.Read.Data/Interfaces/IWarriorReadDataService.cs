@@ -1,16 +1,17 @@
-﻿using MicroDojoWarrior.Read.Domain;
+﻿using MicroDojoWarrior.Read.Data.Queries;
+using MicroDojoWarrior.Read.Domain;
 using System.Collections.Generic;
 
 namespace MicroDojoWarrior.Read.Data.Interfaces
 {
     public interface IWarriorReadDataService
     {
-        IEnumerable<Belt> GetBelt();
+        IEnumerable<Belt> GetBelt(GetBeltQuery query);
 
-        Belt GetBeltById(int id);
+        Belt GetBeltById(GetBeltByIdQuery query);
 
-        IEnumerable<Person> GetPerson();
+        IEnumerable<Person> GetPerson(GetPersonQuery query);
 
-        Person GetPersonById(int id);
+        Person GetPersonById(GetPersonByIdQuery query);
     }
 }

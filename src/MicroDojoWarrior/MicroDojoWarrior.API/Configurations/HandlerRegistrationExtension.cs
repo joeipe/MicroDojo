@@ -1,4 +1,5 @@
-﻿using MicroDojoWarrior.Write.Data.CommandHandlers;
+﻿using MicroDojoWarrior.Read.Data.QueryHandlers;
+using MicroDojoWarrior.Write.Data.CommandHandlers;
 using Microsoft.Extensions.DependencyInjection;
 using SharedKernel.Interfaces;
 using System;
@@ -18,6 +19,13 @@ namespace MicroDojoWarrior.API.Configurations
                 .Where(x => x.GetInterfaces().Any(y => IsHandlerInterface(y)))
                 .Where(x => x.Name.EndsWith("Handler"))
                 .ToList();
+
+            List<Type> handlerTypesQuery = typeof(GetBeltQueryHandler).Assembly.GetTypes()
+                .Where(x => x.GetInterfaces().Any(y => IsHandlerInterface(y)))
+                .Where(x => x.Name.EndsWith("Handler"))
+                .ToList();
+
+            handlerTypes.AddRange(handlerTypesQuery);
 
             foreach (Type type in handlerTypes)
             {
@@ -121,7 +129,7 @@ namespace MicroDojoWarrior.API.Configurations
 
             Type typeDefinition = type.GetGenericTypeDefinition();
 
-            return typeDefinition == typeof(ICommandHandler<>);
+            return typeDefinition == typeof(ICommandHandler<>) || typeDefinition == typeof(IQueryHandler<,>);
         }
     }
 }
