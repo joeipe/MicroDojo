@@ -3,7 +3,6 @@ using MicroDojoWarrior.Write.Data.Events;
 using SharedKernel.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MicroDojoWarrior.Write.Data.EventDispatchers
 {

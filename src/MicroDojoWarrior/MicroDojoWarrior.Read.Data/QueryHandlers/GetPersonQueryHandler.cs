@@ -2,10 +2,8 @@
 using MicroDojoWarrior.Read.Data.Queries;
 using MicroDojoWarrior.Read.Domain;
 using SharedKernel.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MicroDojoWarrior.Read.Data.QueryHandlers
 {

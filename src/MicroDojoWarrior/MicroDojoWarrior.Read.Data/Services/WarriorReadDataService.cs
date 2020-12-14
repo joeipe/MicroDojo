@@ -1,11 +1,8 @@
-﻿using Dapper;
-using Dapper.Contrib.Extensions;
-using MicroDojoWarrior.Read.Data.Interfaces;
+﻿using MicroDojoWarrior.Read.Data.Interfaces;
 using MicroDojoWarrior.Read.Data.Queries;
 using MicroDojoWarrior.Read.Domain;
 using SharedKernel.Services;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace MicroDojoWarrior.Read.Data.Services
 {

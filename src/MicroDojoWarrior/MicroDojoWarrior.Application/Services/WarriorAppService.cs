@@ -34,7 +34,7 @@ namespace MicroDojoWarrior.Application.Services
 
         public BeltVM GetBeltById(int id)
         {
-            var query = _mapper.Map<GetBeltByIdQuery>(id);
+            var query = new GetBeltByIdQuery(id);
             var data = _readData.GetBeltById(query);
             var vm = _mapper.Map<BeltVM>(data);
             return vm;
@@ -72,7 +72,7 @@ namespace MicroDojoWarrior.Application.Services
 
         public PersonVM GetPersonById(int id)
         {
-            var query = _mapper.Map<GetPersonByIdQuery>(id);
+            var query = new GetPersonByIdQuery(id);
             var data = _readData.GetPersonById(query);
             var vm = _mapper.Map<PersonVM>(data);
             return vm;

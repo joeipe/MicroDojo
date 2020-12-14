@@ -1,5 +1,4 @@
-﻿using SharedKernel;
-using SharedKernel.Interfaces;
+﻿using SharedKernel.Interfaces;
 using System;
 
 namespace MicroDojoWarrior.Write.Data.Events
