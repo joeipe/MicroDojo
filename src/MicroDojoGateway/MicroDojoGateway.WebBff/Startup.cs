@@ -7,6 +7,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
+using Polly;
+using Polly.Extensions.Http;
+using System;
+using System.Net.Http;
 
 namespace MicroDojoGateway.WebBff
 {
@@ -29,14 +33,18 @@ namespace MicroDojoGateway.WebBff
                 client.BaseAddress = new System.Uri("https://localhost:44326/");
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-            });
+            })
+                .AddPolicyHandler(GetRetryPolicy())
+                .AddPolicyHandler(GetCircuitBreakerPolicy());
 
             services.AddHttpClient<IPurchaseService, PurchaseService>(client =>
             {
                 client.BaseAddress = new System.Uri("https://localhost:44396/");
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-            });
+            })
+                .AddPolicyHandler(GetRetryPolicy())
+                .AddPolicyHandler(GetCircuitBreakerPolicy());
 
             services.AddSwaggerGen(c =>
             {
@@ -68,6 +76,24 @@ namespace MicroDojoGateway.WebBff
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Micro Dojo Gateway API V1");
             });
+        }
+
+        private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+        {
+            return HttpPolicyExtensions.HandleTransientHttpError()
+                .WaitAndRetryAsync(5,
+                    retryAttempt => TimeSpan.FromMilliseconds(Math.Pow(1.5, retryAttempt) * 1000),
+                    (_, waitingTime) =>
+                    {
+                        Console.WriteLine("Retrying due to Polly retry policy");
+                    });
+        }
+
+        private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
+        {
+            return HttpPolicyExtensions
+                .HandleTransientHttpError()
+                .CircuitBreakerAsync(3, TimeSpan.FromSeconds(15));
         }
     }
 }
