@@ -2,5 +2,8 @@
 
 ## Topic covered
  
-- Microservices
+- DDD
 - CQRS
+- Event-Driven
+- Microservices
+
